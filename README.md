@@ -1,238 +1,341 @@
-# 📧 Mailer
+📧 Mailer
 
-**Mailer** is a modern, local email campaign application built with **FastAPI**, **React**, and **SQLite**. It allows you to send personalized emails to multiple recipients using Gmail SMTP with support for CSV/XLSX imports, attachments, placeholders, live progress tracking, and downloadable reports.
+A simple desktop web application for sending personalized emails to multiple recipients using your Gmail account.
 
-Whether you're contacting clients, companies, communities, event participants, students, or organizations, Mailer helps automate repetitive email sending while keeping every message personalized.
+Instead of sending the same email one by one, Mailer lets you:
 
----
+Upload a list of recipients from Excel or CSV
+Personalize each email automatically
+Attach documents
+Track sending progress
+Download a report after the campaign finishes
 
-## ✨ Features
+Perfect for:
 
-* 📧 Send personalized bulk emails
-* 📄 Import recipients from CSV or XLSX
-* 🏷 Personalize both **Subject** and **Body**
-* 📎 Attach PDF, DOCX, JPG, JPEG, or PNG files
-* 📊 Live campaign progress
-* 📋 Real-time activity logs
-* 📥 Download campaign reports
-* ⏸ Pause, Resume, and Stop campaigns
-* 🔄 Retry failed emails
-* 🌙 Modern responsive interface with Dark Mode
+NGOs
+Small businesses
+Colleges
+Clubs
+Communities
+Event organizers
+Recruiters
+Marketing teams
 
----
+🖥 System Requirements
 
-## 🖼 Preview
+Before installing Mailer, make sure you have:
 
-> *(Add screenshots here after uploading them.)*
+Windows 10/11, Linux or macOS
+Python 3.11 or newer
+Node.js 18 or newer
+Git
 
-* Dashboard
-* Compose Email
-* Campaign Progress
-* Report Download
+If you don't have them:
 
----
+Python → https://www.python.org/downloads/
+Node.js → https://nodejs.org/
+Git → https://git-scm.com/downloads
+📥 Download the Project
+Option 1 (Recommended)
 
-## 🛠 Tech Stack
+Clone using Git.
 
-### Frontend
-
-* React
-* Tailwind CSS
-* Vite
-
-### Backend
-
-* FastAPI
-* SQLAlchemy
-* SQLite
-* Gmail SMTP
-
----
-
-## 📦 Installation
-
-### Clone the repository
-
-```bash
 git clone https://github.com/Scoder0011/Mailer.git
+
+Move into the project.
+
 cd Mailer
-```
+Option 2
 
----
+Click the green Code button on GitHub.
 
-## Install Backend
+Click
 
-```bash
+Download ZIP
+
+Extract it anywhere.
+
+Open the folder in VS Code.
+
+🚀 Running Mailer
+
+Mailer consists of two parts.
+
+Backend (handles email sending)
+Frontend (the website you interact with)
+
+Both must be running.
+
+Step 1 — Start the Backend
+
+Open VS Code.
+
+Open a terminal.
+
+Move into the backend folder.
+
 cd backend
 
+Create a virtual environment.
+
+Windows:
+
 python -m venv venv
-```
 
-### Windows
+Activate it.
 
-```bash
+Windows
+
 venv\Scripts\activate
-```
 
-### Linux/macOS
+Linux/macOS
 
-```bash
 source venv/bin/activate
-```
 
-Install dependencies
+Install the required packages.
 
-```bash
 pip install -r requirements.txt
-```
 
-Run the backend
+Now start the backend.
 
-```bash
 uvicorn main:app --reload
-```
 
-Backend:
+If everything is working you should see
 
-```
+Uvicorn running on:
+
 http://127.0.0.1:8000
-```
 
----
+Leave this terminal open.
 
-## Install Frontend
+Step 2 — Start the Frontend
 
 Open another terminal.
 
-```bash
+Move into the frontend folder.
+
 cd frontend
+
+Install packages.
 
 npm install
 
+Start the frontend.
+
 npm run dev
-```
 
-Frontend:
+You will see something similar to
 
-```
+Local:
+
 http://localhost:5173
-```
 
----
+Open that address in your browser.
 
-# 🔐 Gmail Setup
+🔐 Gmail Setup (Very Important)
 
-This application uses Gmail SMTP for sending emails.
+Mailer sends emails using your Gmail account.
 
-To use it:
+Google does NOT allow applications to use your normal Gmail password.
 
-1. Go to your Google Account.
-2. Enable **2-Step Verification**.
-3. Open **App Passwords**.
-4. Create a new App Password.
-5. Use:
+Instead, you must create an App Password.
 
-* Your Gmail address
-* The generated 16-character App Password
+Step 1
 
-**Do not use your normal Gmail password.**
+Open
 
----
+https://myaccount.google.com
 
-## 📄 Recipient File Format
+Step 2
 
-Supported:
+Click
 
-* CSV
-* XLSX
+Security
+Step 3
+
+Enable
+
+2-Step Verification
+Step 4
+
+Search for
+
+App Passwords
+
+or visit
+
+https://myaccount.google.com/apppasswords
+
+Step 5
+
+Create a new App Password.
+
+Example name:
+
+Mailer
+
+Google will generate something like
+
+abcd efgh ijkl mnop
+
+Copy it.
+
+You will only see it once.
+
+Step 6
+
+Inside Mailer
+
+Sender Email
+
+yourgmail@gmail.com
+
+App Password
+
+abcd efgh ijkl mnop
+
+Do NOT use your Gmail password.
+
+📄 Preparing the Recipient List
+
+Mailer accepts
+
+CSV
+XLSX
 
 Example:
 
-```csv
 email,name,company
 john@example.com,John Doe,Microsoft
-alice@example.com,Alice Johnson,Google
-```
+alice@example.com,Alice,Google
 
----
+The email column is required.
 
-## 🏷 Supported Placeholders
+The name and company columns are optional.
 
-| Placeholder             | Description     |
-| ----------------------- | --------------- |
-| `{{name}}`              | Recipient name  |
-| `{{recipient_name}}`    | Recipient name  |
-| `{{company}}`           | Company         |
-| `{{recipient_company}}` | Company         |
-| `{{email}}`             | Recipient email |
-| `{{recipient_email}}`   | Recipient email |
+🏷 Placeholders
 
-These placeholders work in both the **Subject** and **Body**.
+You can personalize every email.
 
-Example subject:
+Example subject
 
-```
-Partnership Opportunity with {{company}}
-```
+Opportunity with {{company}}
 
----
+Example body
 
-## 🚀 Usage
+Hello {{name}},
 
-1. Start the backend.
-2. Start the frontend.
-3. Open the application.
-4. Enter your Gmail address.
-5. Enter your Google App Password.
-6. Write your subject.
-7. Write your email.
-8. Upload a CSV/XLSX file.
-9. (Optional) Upload an attachment.
-10. Send a test email.
-11. Start the campaign.
-12. Monitor the progress.
-13. Download the campaign report.
+Thank you for your time.
 
----
+Regards,
+Your Team
 
-## 📊 Reports
+Available placeholders
 
-After each campaign you can download a report containing:
+Placeholder	Meaning
+{{name}}	Recipient name
+{{company}}	Company name
+{{email}}	Recipient email
+{{recipient_name}}	Recipient name
+{{recipient_company}}	Company name
+{{recipient_email}}	Recipient email
+✉ Sending Your First Email
 
-* Recipient Email
-* Company
-* Status
-* Error Message
-* Timestamp
+Before sending to hundreds of people, always test.
 
----
+Create a CSV containing only your own email.
 
-## ⚠ Gmail Sending Limits
+Example
 
-Google applies daily sending limits.
+email,name,company
+your@email.com,John Doe,Testing Company
 
-For larger campaigns, use a delay between emails to reduce the chance of temporary rate limits.
+Inside Mailer
 
----
+Enter your Gmail address.
+Enter your App Password.
+Write the subject.
+Write the email.
+Upload the CSV.
+Click Send Test Email.
 
-## 🤝 Contributing
+Check that:
 
-Contributions, feature requests, and bug reports are welcome.
+Subject is correct.
+Name is replaced.
+Company is replaced.
+Attachment is included.
 
-Feel free to fork the repository and submit a pull request.
+Once everything looks good, upload your real recipient list.
 
----
+📊 During a Campaign
 
-## 📄 License
+You can
+
+Start
+Pause
+Resume
+Stop
+
+After the campaign finishes, download the report.
+
+⚠ Gmail Limits
+
+Google limits how many emails you can send every day.
+
+For better reliability:
+
+Use a delay of 10–20 seconds.
+Don't send hundreds of emails instantly.
+Test before large campaigns.
+❓ Frequently Asked Questions
+The test email failed.
+Check your Gmail address.
+Check your App Password.
+Make sure 2-Step Verification is enabled.
+My email says "Sent" but the recipient didn't receive it.
+
+The email was accepted by Gmail.
+
+The recipient's mail server may have rejected it later.
+
+Check:
+
+Spam
+Promotions
+Recipient address
+Domain restrictions
+Placeholders are not replaced.
+
+Use
+
+{{name}}
+
+not
+
+{name}
+Backend won't start.
+
+Run
+
+pip install -r requirements.txt
+
+again.
+
+Frontend won't start.
+
+Run
+
+npm install
+
+again.
+
+📄 License
 
 MIT License
 
----
+👨‍💻 Author
 
-## 👨‍💻 Author
+Suraj Chauhan
 
-**Suraj Chauhan**
-
-GitHub:
-https://github.com/Scoder0011
-
+GitHub: https://github.com/Scoder0011
