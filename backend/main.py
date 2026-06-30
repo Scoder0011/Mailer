@@ -15,7 +15,7 @@ from email.mime.text import MIMEText
 
 models.Base.metadata.create_all(bind=database.engine)
 
-app = FastAPI(title="NGO Mailer Backend API Platform")
+app = FastAPI(title=" Mailer Backend API Platform")
 
 app.add_middleware(
     CORSMiddleware,
@@ -106,7 +106,7 @@ def send_test_email(payload: schemas.TestEmailRequest):
         # Build out pseudo model instantiation mappings to pass to operational parser engines
         class PseudoRecipient:
             name = "Test-Representative"
-            company = "NGO Testing Hub"
+            company = "Mailer Testing Hub"
             
         from mailer import CampaignWorker
         body_content = CampaignWorker.parse_template(None, payload.body, PseudoRecipient)

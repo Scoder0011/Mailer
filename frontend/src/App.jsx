@@ -157,7 +157,7 @@ export default function App() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyek0zNiAxNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-20" />
           <div className="relative flex items-center gap-4">
             <div className="p-2.5 bg-white/20 backdrop-blur-sm rounded-2xl text-white shadow-lg">
-              <span className="font-black text-xl tracking-wider">NGO</span>
+              <span className="font-black text-xl tracking-wider">Mailer</span>
             </div>
             <div>
               <h1 className="text-2xl font-black tracking-tight text-white drop-shadow-sm">Mailer Core Platform</h1>
@@ -234,7 +234,7 @@ export default function App() {
         </main>
 
         <footer className="max-w-7xl mx-auto text-center py-6 text-xs text-slate-400 dark:text-slate-500 font-medium flex items-center justify-center gap-1.5">
-          Designed with structural data-integrity engineering pipelines for NGO teams worldwide.
+          Designed with structural data-integrity engineering pipelines for any teams worldwide.
           <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
         </footer>
       </div>

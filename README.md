@@ -1,93 +1,66 @@
-# NGO Mailer
+# 📧 Mailer
 
-NGO Mailer is a local web application that helps NGOs send personalized outreach emails to multiple companies using Gmail SMTP. It allows you to upload a list of recipients, personalize emails using placeholders, attach documents, monitor campaign progress, and download campaign reports.
+**Mailer** is a modern, local email campaign application built with **FastAPI**, **React**, and **SQLite**. It allows you to send personalized emails to multiple recipients using Gmail SMTP with support for CSV/XLSX imports, attachments, placeholders, live progress tracking, and downloadable reports.
 
-> **Note:** This project is intended for legitimate outreach, such as CSR proposals, sponsorship requests, partnership opportunities, and other authorized communications.
+Whether you're contacting clients, companies, communities, event participants, students, or organizations, Mailer helps automate repetitive email sending while keeping every message personalized.
 
 ---
 
-# Features
+## ✨ Features
 
-* 📧 Send personalized emails in bulk
-* 📄 Upload recipient lists using CSV or XLSX
+* 📧 Send personalized bulk emails
+* 📄 Import recipients from CSV or XLSX
+* 🏷 Personalize both **Subject** and **Body**
 * 📎 Attach PDF, DOCX, JPG, JPEG, or PNG files
-* 📝 Personalize email subject and body using placeholders
 * 📊 Live campaign progress
-* 📋 Campaign logs
-* 📥 Download campaign report (CSV)
-* ⏸ Pause, resume, and stop campaigns
+* 📋 Real-time activity logs
+* 📥 Download campaign reports
+* ⏸ Pause, Resume, and Stop campaigns
 * 🔄 Retry failed emails
-* 🌙 Modern responsive UI with Dark Mode
+* 🌙 Modern responsive interface with Dark Mode
 
 ---
 
-# Supported Placeholders
+## 🖼 Preview
 
-You can use the following placeholders in both the **Subject** and **Body**.
+> *(Add screenshots here after uploading them.)*
 
-| Placeholder             | Description     |
-| ----------------------- | --------------- |
-| `{{name}}`              | Recipient name  |
-| `{{recipient_name}}`    | Recipient name  |
-| `{{company}}`           | Company name    |
-| `{{recipient_company}}` | Company name    |
-| `{{email}}`             | Recipient email |
-| `{{recipient_email}}`   | Recipient email |
-
-Example Subject:
-
-```text
-Partnership Opportunity with {{company}}
-```
-
-Example Body:
-
-```text
-Hello {{name}},
-
-We would love to connect with {{company}} regarding a CSR partnership opportunity.
-```
+* Dashboard
+* Compose Email
+* Campaign Progress
+* Report Download
 
 ---
 
-# Recipient File Format
+## 🛠 Tech Stack
 
-The recipient list must be a **CSV** or **XLSX** file.
+### Frontend
 
-Example:
+* React
+* Tailwind CSS
+* Vite
 
-```csv
-email,name,company
-john@example.com,John Doe,Microsoft
-alice@example.com,Alice,Google
-```
+### Backend
 
-The **email** column is required.
-
-The **name** and **company** columns are optional.
-
----
-
-# Requirements
-
-* Python 3.11+
-* Node.js 18+
-* npm
+* FastAPI
+* SQLAlchemy
+* SQLite
+* Gmail SMTP
 
 ---
 
-# Installation
+## 📦 Installation
 
-## 1. Clone the repository
+### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ngo-mailer.git
-cd ngo-mailer
+git clone https://github.com/Scoder0011/Mailer.git
+cd Mailer
 ```
 
 ---
 
-## 2. Backend Setup
+## Install Backend
 
 ```bash
 cd backend
@@ -107,29 +80,29 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Start the backend:
+Run the backend
 
 ```bash
 uvicorn main:app --reload
 ```
 
-The backend will start on:
+Backend:
 
-```text
+```
 http://127.0.0.1:8000
 ```
 
 ---
 
-## 3. Frontend Setup
+## Install Frontend
 
-Open a new terminal.
+Open another terminal.
 
 ```bash
 cd frontend
@@ -139,112 +112,127 @@ npm install
 npm run dev
 ```
 
-The frontend will usually start on:
+Frontend:
 
-```text
-http://localhost:3000
 ```
-
-or
-
-```text
 http://localhost:5173
 ```
 
-depending on your Vite configuration.
-
 ---
 
-# Gmail Setup
+# 🔐 Gmail Setup
 
-This project uses **Gmail SMTP**.
+This application uses Gmail SMTP for sending emails.
 
-Before sending emails:
+To use it:
 
-1. Enable **2-Step Verification** on your Google account.
-2. Generate a **Google App Password**.
-3. Use your Gmail address and App Password inside the application.
+1. Go to your Google Account.
+2. Enable **2-Step Verification**.
+3. Open **App Passwords**.
+4. Create a new App Password.
+5. Use:
+
+* Your Gmail address
+* The generated 16-character App Password
 
 **Do not use your normal Gmail password.**
 
 ---
 
-# How to Use
+## 📄 Recipient File Format
 
-1. Start the backend.
-2. Start the frontend.
-3. Open the application.
-4. Enter:
+Supported:
 
-   * Gmail address
-   * Google App Password
-   * Subject
-   * Email body
-5. Upload a CSV/XLSX recipient file.
-6. (Optional) Upload an attachment.
-7. Click **Send Test Email**.
-8. Verify the email arrives correctly.
-9. Click **Start Campaign** to begin sending.
-10. Monitor the progress and download the campaign report when finished.
+* CSV
+* XLSX
 
----
+Example:
 
-# Reports
-
-After a campaign completes, you can download a CSV report containing:
-
-* Recipient Email
-* Company
-* Delivery Status
-* Error Message (if any)
-* Timestamp
-
----
-
-# Supported Attachments
-
-* PDF
-* DOCX
-* PNG
-* JPG
-* JPEG
-
-Maximum file size: **10 MB**
-
----
-
-# Notes
-
-* This application runs locally.
-* Your Gmail App Password is only used to authenticate with Gmail SMTP.
-* Use the tool responsibly and only send emails to recipients who are appropriate for your outreach.
-
----
-
-# Project Structure
-
-```text
-ngo-mailer/
-│
-├── backend/
-├── frontend/
-├── uploads/
-├── reports/
-├── screenshots/
-├── README.md
-└── requirements.txt
+```csv
+email,name,company
+john@example.com,John Doe,Microsoft
+alice@example.com,Alice Johnson,Google
 ```
 
 ---
 
-# License
+## 🏷 Supported Placeholders
 
-This project is released under the MIT License.
+| Placeholder             | Description     |
+| ----------------------- | --------------- |
+| `{{name}}`              | Recipient name  |
+| `{{recipient_name}}`    | Recipient name  |
+| `{{company}}`           | Company         |
+| `{{recipient_company}}` | Company         |
+| `{{email}}`             | Recipient email |
+| `{{recipient_email}}`   | Recipient email |
+
+These placeholders work in both the **Subject** and **Body**.
+
+Example subject:
+
+```
+Partnership Opportunity with {{company}}
+```
 
 ---
 
-# Author
+## 🚀 Usage
+
+1. Start the backend.
+2. Start the frontend.
+3. Open the application.
+4. Enter your Gmail address.
+5. Enter your Google App Password.
+6. Write your subject.
+7. Write your email.
+8. Upload a CSV/XLSX file.
+9. (Optional) Upload an attachment.
+10. Send a test email.
+11. Start the campaign.
+12. Monitor the progress.
+13. Download the campaign report.
+
+---
+
+## 📊 Reports
+
+After each campaign you can download a report containing:
+
+* Recipient Email
+* Company
+* Status
+* Error Message
+* Timestamp
+
+---
+
+## ⚠ Gmail Sending Limits
+
+Google applies daily sending limits.
+
+For larger campaigns, use a delay between emails to reduce the chance of temporary rate limits.
+
+---
+
+## 🤝 Contributing
+
+Contributions, feature requests, and bug reports are welcome.
+
+Feel free to fork the repository and submit a pull request.
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 👨‍💻 Author
 
 **Suraj Chauhan**
 
-Built to simplify NGO outreach and partnership campaigns through secure and personalized email automation.
+GitHub:
+https://github.com/Scoder0011
+

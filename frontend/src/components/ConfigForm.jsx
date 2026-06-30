@@ -145,7 +145,7 @@ export default function ConfigForm({ formData, setFormData, onUploadRecipients, 
             onChange={handleChange}
             rows={6}
             className="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-mono text-sm placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
-            placeholder={`Hello {{name}},\n\nWe love your work at {{company}}. Let's build a CSR collaboration.\n\nWarm regards,\nNGO Team`}
+            placeholder={`Hello {{name}},\n\nWe love your work at {{company}}. Let's build a CSR collaboration.\n\nWarm regards,\nYour Team`}
           />
           <span className="text-xs text-slate-400 dark:text-slate-500 mt-1.5 block">
             Supported Token Injections: {'{{name}}'}, {'{{company}}'}
